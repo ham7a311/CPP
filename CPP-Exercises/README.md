@@ -4,7 +4,7 @@ lecture 1: Introduction to C++   ✅
 
 lecture 2: Conditional Statements if   ✅
 
-lecture 3: Conditional Statements switch
+lecture 3: Conditional Statements switch  ✅
 
 lecture 4: Loops
 
