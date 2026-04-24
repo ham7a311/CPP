@@ -267,3 +267,83 @@ int main() {
 
     return 0;
 }
+
+
+/* 
+Exercise 11: Write a C++ program that asks the user to input the basic salary of an employee then calculates its Gross salary according to following:
+                            • Basic Salary <= 10000 : HRA = 20%, DA = 80%
+                            • Basic Salary <= 20000 : HRA = 25%, DA = 90%
+                            • Basic Salary > 20000 : HRA = 30%, DA = 95%
+*/
+
+int main() {
+    int basicSalary;
+    double hra, da, finalSalary;
+
+    cout << "Enter your salary: ";
+    cin >> basicSalary;
+
+    if(basicSalary <= 10000) {
+        
+        hra = 0.2 * basicSalary;
+        da = 0.8 * basicSalary;
+        
+    } else if (basicSalary <= 20000) {
+        
+        hra = 0.25 * basicSalary;
+        da = 0.9 * basicSalary;
+        
+    } else {
+        
+        hra = 0.3 * basicSalary;
+        da = 0.95 * basicSalary;
+        
+    }
+
+    finalSalary = basicSalary + hra + da;
+
+    cout << "Your salary is: " << finalSalary;
+
+    return 0;
+}
+
+
+/* 
+Exercise 12: Write a C++ program that asks the user to input the marks of one subject.
+            The program should calculate the grade according to following:
+                            Percentage >= 90% : Grade A
+                            Percentage >= 80% : Grade B
+                            Percentage >= 70% : Grade C
+                            Percentage >= 60% : Grade D
+                            Percentage >= 40% : Grade E
+                            Percentage < 40% : Grade F
+*/
+
+int main() {
+    double marks;
+
+    cout << "Enter marks: ";
+    cin >> marks;
+
+    // determine grade based on percentage
+    if (marks >= 90) {
+        cout << "Grade A";
+    }
+    else if (marks >= 80) {
+        cout << "Grade B";
+    }
+    else if (marks >= 70) {
+        cout << "Grade C";
+    }
+    else if (marks >= 60) {
+        cout << "Grade D";
+    }
+    else if (marks >= 40) {
+        cout << "Grade E";
+    }
+    else {
+        cout << "Grade F";
+    }
+
+    return 0;
+}
