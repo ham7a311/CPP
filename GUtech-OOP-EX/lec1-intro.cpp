@@ -48,12 +48,15 @@ Exercise 3 – Print a box like the one below.
 
 int main() {
     for(int i = 0; i < 4; i++) {            // outer loop controls rows (height of the box)
+                
         for(int j = 0; j < 20; j++) {       // inner loop controls rows (width of the box)
+                    
             if(i == 0 or i == 3 || j == 0 || j == 19) {
                 cout << "*";    // print * on top row, bottom row, left edge, and right edge
-            }else {
+            } else {
                 cout << " ";   // print space inside the box
             }
+                    
         }
         
         cout << endl;         // move to the next line after finishing each row
