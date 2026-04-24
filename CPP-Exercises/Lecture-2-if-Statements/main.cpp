@@ -116,3 +116,154 @@ int main() {
 
     return 0;
 }
+
+
+/* 
+Exercise 6: Write a C++ program that asks the user for to enter the length of each side in a triangle then checks
+            whether the triangle is valid or not.
+            •(Hint: A triangle is valid if sum of its two sides is greater •than the third side.)
+*/
+
+int main() {
+    double a, b, c;
+
+    cout << "Enter first side: ";
+    cin >> a;
+
+    cout << "Enter second side: ";
+    cin >> b;
+
+    cout << "Enter third side: ";
+    cin >> c;
+
+    // A triangle is valid if sum of any two sides is greater than the third side
+    if (a + b > c && a + c > b && b + c > a) {
+        cout << "Triangle is valid";
+    } else {
+        cout << "Triangle is not valid";
+    }
+
+    return 0;
+}
+
+
+/* 
+Exercise 7: Write a C++ program that asks the user to enter a length in centimeters.
+            If the user enters a negative length, the program should tell the user that the entry is invalid.
+            Otherwise, the program should convert the length to inches and print out the result.
+                        There are 2.54 centimeters in an inch.
+*/
+
+int main() {
+    double cm, inches;
+
+    cout << "Enter length in centimeters: ";
+    cin >> cm;
+
+    // check for invalid input
+    if (cm < 0) {
+        cout << "Invalid entry";
+    } else {
+        // 1 inch = 2.54 cm, so convert cm to inches
+        inches = cm / 2.54;
+        cout << "Length in inches: " << inches;
+    }
+
+    return 0;
+}
+
+
+/* 
+Exercise 8: Write a C++ program that asks the user for a temperature.
+            Then asks them what units, Celsius or Fahrenheit, the temperature is in.
+            Your program should convert the temperature to the other unit.
+            • The conversions are F = 9/5 C + 32 and C = 5/9(F – 32).
+*/
+
+int main() {
+    double temp;
+    char unit;
+
+    cout << "Enter temperature: ";
+    cin >> temp;
+
+    cout << "Enter unit (C or F): ";
+    cin >> unit;
+
+    // if input is Celsius, convert to Fahrenheit
+    if (unit == 'C' || unit == 'c') {
+        cout << "Temperature in Fahrenheit: " << (9.0 / 5.0) * temp + 32;
+    }
+    // if input is Fahrenheit, convert to Celsius
+    else if (unit == 'F' || unit == 'f') {
+        cout << "Temperature in Celsius: " << (5.0 / 9.0) * (temp - 32);
+    }
+    // invalid unit input
+    else {
+        cout << "Invalid unit/input";
+    }
+
+    return 0;
+}
+
+
+/* 
+Exercise 9: A store charges $12 per item if you buy less than 10 items.
+            If you buy between 10 and 99 items, the cost is $10 per item.
+            If you buy 100 or more items, the cost is $7 per item.
+            Write a C++ program that asks the user how many items they are buying and prints the total cost
+*/
+
+int main() {
+    int items;
+    double cost;
+
+    cout << "Enter number of items: ";
+    cin >> items;
+
+    // determine price per item based on quantity
+    if (items < 10) {
+        cost = items * 12;
+    }
+    else if (items >= 10 && items <= 99) {
+        cost = items * 10;
+    }
+    else {
+        cost = items * 7;
+    }
+
+    cout << "Total cost: $" << cost;
+
+    return 0;
+}
+
+
+/* 
+Exercise 10: Write a C++ program that asks the user how many creditsthey have taken.
+            If they have taken 23 or less, print that the student is a freshman.
+            If they havetaken between 24 and 53, print that they are a sophomore.
+            The range for juniors is 54 to 83, and for seniors it is 84 and over.
+*/
+
+int main() {
+    int credits;
+
+    cout << "Enter number of credits: ";
+    cin >> credits;
+
+    // determine student year based on credits taken
+    if (credits <= 23) {
+        cout << "Student is a freshman";
+    }
+    else if (credits >= 24 && credits <= 53) {
+        cout << "Student is a sophomore";
+    }
+    else if (credits >= 54 && credits <= 83) {
+        cout << "Student is a junior";
+    }
+    else {
+        cout << "Student is a senior";
+    }
+
+    return 0;
+}
