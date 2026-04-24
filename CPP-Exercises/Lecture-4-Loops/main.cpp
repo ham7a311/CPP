@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 /* 
 Exercise 1 – What is the output of the following program?
 */
