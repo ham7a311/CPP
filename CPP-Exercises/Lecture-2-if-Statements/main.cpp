@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 /* 
 Exercise 1 – Write a C++ program that asks the user for two numbers then find maximum between them.
 */
