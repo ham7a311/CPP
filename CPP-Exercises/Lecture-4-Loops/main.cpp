@@ -171,5 +171,116 @@ int main() {
 }
 
 
+/* 
+Exercise 10 – The Fibonacci numbers are the sequence below, where the first two numbers are 1, and each number thereafter is the sum of the two preceding numbers.
+              Write a program that asks the user how many Fibonacci numbers to print and then prints that many.
+                                        1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, . . .
+*/
+
+int main() {
+    int a, b, fib, tempValue;
+
+    a = 1; // first Fibonacci number
+    b = 1; // second Fibonacci number
+
+    cout << "How many Fibonacci numbers do you want: ";
+    cin >> fib;         // read how many numbers to print
+
+    // print the first two Fibonacci numbers
+    cout << a << ", " << b << ", ";
+
+    // loop starts from the 3rd position since first two are already printed
+    for(int i = 3; i <= fib; i++) {
+        cout << a + b << ", "; // print next Fibonacci number
+
+        tempValue = a + b;    // calculate next number
+        a = b;                // shift a to previous b
+        b = tempValue;        // update b to new value
+    }
+
+    return 0;
+}
+
+
+/* 
+Exercise 11 – Write a C++ program that asks the user for 10 numbers then prints the maximum number.
+*/
+
+int main() {
+    int max, n;
+
+    // read the first number and use it as initial max
+    cout << "Enter a number: ";
+    cin >> max;
+
+    // loop runs 9 more times (total = 10 numbers)
+    for(int i = 1; i < 10; i++) {
+
+        cout << "Enter a number: ";
+        cin >> n; // read next number
+
+        // check if current number is greater than max
+        if(n > max) {
+            max = n; // update max
+        }
+    }
+
+    cout << "Maximum number is: " << max;
+
+    return 0;
+}
+
+
+/* 
+Exercise 12 – Write a C++ program that asks the user to enter 100 positive integers.
+              The program will stop asking the user to input more integers if the user entered a non-positive integer.
+                    Then the program prints the following:
+                        the number of positive integers entered
+                        the total
+                        the maximum
+                        the average
+                        the minimum
+*/
+
+int main() {
+    
+    int n, total = 0, positiveIntCount = 0, max, min;
+
+    for(int i = 0; i < 100; i++) {
+
+        cout << "Enter a positive integer (non-positive to stop): ";
+        cin >> n;
+
+        // stop if non-positive
+        if(n <= 0) {
+            break;
+        }
+
+        // first valid input initializes values
+        if(positiveIntCount == 0) {
+            max = min = n;
+        }
+
+        total += n;
+        positiveIntCount++;
+
+        if(n > max) max = n;
+        if(n < min) min = n;
+    }
+
+    if(positiveIntCount == 0) {
+        cout << "No positive integers were entered." << endl;
+    } else {
+        cout << "Number of positive integers: " << positiveIntCount << endl;
+        cout << "Total: " << total << endl;
+        cout << "Maximum number: " << max << endl;
+        cout << "Minimum number: " << min << endl;
+        cout << "Average: " << (double)total / positiveIntCount << endl;  // average can be decimal value
+    }
+
+    return 0;
+
+}
+
 
 
