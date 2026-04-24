@@ -6,7 +6,7 @@ lecture 2: Conditional Statements if   ✅
 
 lecture 3: Conditional Statements switch  ✅
 
-lecture 4: Loops
+lecture 4: Loops (EX 21 & 22 remaining)
 
 lecture 5: Arrays
 
