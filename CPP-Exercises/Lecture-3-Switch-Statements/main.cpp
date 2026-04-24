@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 /* 
 Exercise 1 – Write a C++ program to input month number and print
             total number of days in month using switch...case. 
