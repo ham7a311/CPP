@@ -1,6 +1,6 @@
 This Folder includes My Solutions to all the exercieses from the OOP course, GUtech - Year 1
 
-lecture 1: Introduction to C++
+lecture 1: Introduction to C++ ✅
 
 lecture 2: Conditional Statements if
 
