@@ -319,3 +319,80 @@ int main()
     return 0;
 }
 
+
+/* 
+Exercise 5 – Write a C++ program that creates the following arrays using for loop.
+                a) An array consisting of the integers 0 through 49
+                b) An array containing the squares of the integers 1 through 50.
+*/
+
+int main() {
+
+    int arr[50], sq[50];
+
+    // a) integers 0 → 49
+    for(int i = 0; i < 50; i++) {
+        arr[i] = i;
+    }
+
+    // b) squares of 1 → 50 
+    for(int i = 1; i <= 50; i++) {
+        sq[i - 1] = i * i;       // start from 0 for the index(important)
+    }
+
+    for(int i = 0; i < 50; i++) {
+        cout << arr[i] << " ";
+    }
+
+    cout << endl;
+
+    for(int i = 0; i < 50; i++) {
+        cout << sq[i] << " ";
+    }
+
+    return 0;
+}
+
+
+/* 
+Exercise 6 – Write a C++ program that asks the user for an integer and
+             creates an array that consists of the factors of that integer.
+*/
+
+int main() {
+
+    int num, factors = 0; // num stores user input, factors counts how many factors exist
+
+    cout << "Enter a number: ";
+    cin >> num; // read the number from the user
+
+    // First loop: count how many factors the number has
+    for(int i = 1; i <= num; i++) {
+        if(num % i == 0) { // check if i divides num evenly
+            factors++;     // increase factor count
+        }
+    }
+
+    int arr[factors], index = 0; 
+    // create array of size 'factors'
+    // index is used to track the current position in the array
+
+    // Second loop: find and store the actual factors
+    for(int j = 1; j <= num; j++) {
+        if(num % j == 0) {     // if j is a factor
+            arr[index] = j;    // store it in the array
+            index++;           // move to next position
+        }
+    }
+
+    // Print all stored factors
+    for(int u = 0; u < factors; u++) {
+        cout << arr[u] << " ";
+    }
+
+    return 0;
+}
+
+
+
+
