@@ -8,7 +8,7 @@ lecture 3: Conditional Statements switch  ✅
 
 lecture 4: Loops ✅ (EX 21 & 22 remaining)
 
-lecture 5: Arrays
+lecture 5: Arrays  ✅ (EX 9 & 10 & 11 remaining)
 
 lecture 6: Functions - Part 1 & 2
 
