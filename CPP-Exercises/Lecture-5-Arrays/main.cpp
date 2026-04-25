@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib> // to use the random function
 using namespace std;
 
 /* 
@@ -366,7 +367,7 @@ int main() {
     cout << "Enter a number: ";
     cin >> num; // read the number from the user
 
-    // First loop: count how many factors the number has
+    // First loop: count how many factors the number has, to make the size of array dynamic (not fixed)
     for(int i = 1; i <= num; i++) {
         if(num % i == 0) { // check if i divides num evenly
             factors++;     // increase factor count
@@ -394,5 +395,96 @@ int main() {
 }
 
 
+/* 
+Exercise 7 – Write a C++ program that generates 100 random integers that are either 0 or 1. Then find the longest run of zeros, the largest number of zeros in a row.
+            For instance, the longest run of zeros in [1,0,1,1,0,0,0,0,1,0,0] is 4.
+
+                        #include <cstdlib> // to use the random function
+                        arr[i] = rand() % 2; // generate a random number.
+*/
+
+int main() {
+
+    int arr[100], currentRun = 0, maxRun = 0;
+    // arr stores 100 random values (0 or 1)
+    // currentRun tracks the current streak of zeros
+    // maxRun stores the longest streak found
+
+    srand(time(0));
+    // seed the random number generator so results differ each run ( dont forget to include <ctime> and <cstdlib> )
+
+    // generate 100 random 0s and 1s
+    for(int i = 0; i < 100; i++) {
+        arr[i] = rand() % 2;
+    }
+
+    // loop through array to find longest consecutive run of zeros
+    for(int j = 0; j < 100; j++) {
+
+        if(arr[j] == 0) {
+            currentRun++; 
+            // increase current streak of zeros
+
+            if(currentRun > maxRun) {
+                maxRun = currentRun;
+                // update longest streak if current is bigger
+            }
+
+        } else {
+            currentRun = 0;
+            // reset streak when a 1 is found
+        }
+    }
+
+    // output result
+    cout << "Longest run of zeros: " << maxRun << endl;
+
+    return 0;
+}
 
 
+/* 
+Exercise 8 – Write a C++ program that removes any repeated items from an array so that each item appears at most once.
+             For instance, the array [1,1,2,3,4,3,0,0] would become [1,2,3,4,0].
+*/
+
+int main() {
+
+    // Original array with duplicates
+    int arr[10] = {1, 1, 2, 2, 3, 4, 4, 7, 7, 6};
+
+    // Array to store unique elements (same max size as original)
+    int newArray[10], newSize = 0;
+
+    // Loop through each element of the original array
+    for(int i = 0; i < 10; i++) {
+
+        bool isDuplicate = false; 
+        // Flag to check if arr[i] already exists in newArray
+
+        // Check if arr[i] is already in newArray
+        for(int j = 0; j < newSize; j++) {
+
+            if(arr[i] == newArray[j]) {
+                isDuplicate = true;         // mark as duplicate
+                break;                      // no need to check further
+            }
+
+        }
+
+        // If not a duplicate, add it to newArray
+        if(!isDuplicate) {
+
+            newArray[newSize] = arr[i];
+            newSize++;                  // increase size of unique array
+
+        }
+    }
+
+    // Print the array without duplicates
+    for(int i = 0; i < newSize; i++) {
+        cout << newArray[i] << " ";
+    }
+
+    return 0;
+}
