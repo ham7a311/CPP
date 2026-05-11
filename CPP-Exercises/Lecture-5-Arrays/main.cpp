@@ -488,3 +488,198 @@ int main() {
 
     return 0;
 }
+
+
+/* Exercise 9 – Write a C++ program that compares two arrays and prints True if they have at least one common item */
+
+int main() {
+    int size1, size2;
+
+    // Input size of first array
+    cout << "Enter size of first array: ";
+    cin >> size1;
+
+    int arr1[size1];
+
+    // Input elements of first array
+    cout << "Enter elements of first array: ";
+    for (int i = 0; i < size1; i++) {
+        cin >> arr1[i];
+    }
+
+    // Input size of second array
+    cout << "Enter size of second array: ";
+    cin >> size2;
+
+    int arr2[size2];
+
+    // Input elements of second array
+    cout << "Enter elements of second array: ";
+    for (int i = 0; i < size2; i++) {
+        cin >> arr2[i];
+    }
+
+    bool found = false;
+
+    // Compare arrays
+    for (int i = 0; i < size1; i++) {
+        for (int j = 0; j < size2; j++) {
+            if (arr1[i] == arr2[j]) {
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            break;
+        }
+    }
+
+    // Display result
+    if (found) {
+        cout << "True - Arrays have at least one common item." << endl;
+    } else {
+        cout << "False - Arrays have no common items." << endl;
+    }
+
+    return 0;
+}
+
+
+/* Exercise 10 – Write a C++ program that removes similar items between two arrays.
+                  Sample data:
+                  ["red", "orange", "green", "blue", "white"]
+                  ["black", "yellow", "green", "blue"]
+                  Expected Output:
+                      ["white", "orange", "red"]
+                      ["black", "yellow"]  
+*/
+
+int main() {
+    string arr1[] = {"red", "orange", "green", "blue", "white"};
+    string arr2[] = {"black", "yellow", "green", "blue"};
+
+    int size1 = 5;
+    int size2 = 4;
+
+    bool common;
+
+    // Print unique items from first array
+    cout << "[";
+    for (int i = 0; i < size1; i++) {
+        common = false;
+
+        for (int j = 0; j < size2; j++) {
+            if (arr1[i] == arr2[j]) {
+                common = true;
+                break;
+            }
+        }
+
+        if (!common) {
+            cout << "\"" << arr1[i] << "\"";
+            
+            // Check if more unique items exist
+            for (int k = i + 1; k < size1; k++) {
+                bool nextCommon = false;
+
+                for (int j = 0; j < size2; j++) {
+                    if (arr1[k] == arr2[j]) {
+                        nextCommon = true;
+                        break;
+                    }
+                }
+
+                if (!nextCommon) {
+                    cout << ", ";
+                    break;
+                }
+            }
+        }
+    }
+    cout << "]" << endl;
+
+    // Print unique items from second array
+    cout << "[";
+    for (int i = 0; i < size2; i++) {
+        common = false;
+
+        for (int j = 0; j < size1; j++) {
+            if (arr2[i] == arr1[j]) {
+                common = true;
+                break;
+            }
+        }
+
+        if (!common) {
+            cout << "\"" << arr2[i] << "\"";
+
+            // Check if more unique items exist
+            for (int k = i + 1; k < size2; k++) {
+                bool nextCommon = false;
+
+                for (int j = 0; j < size1; j++) {
+                    if (arr2[k] == arr1[j]) {
+                        nextCommon = true;
+                        break;
+                    }
+                }
+
+                if (!nextCommon) {
+                    cout << ", ";
+                    break;
+                }
+            }
+        }
+    }
+    cout << "]" << endl;
+
+    return 0;
+}
+
+
+/* Exercise 11 – Write a C++ program that generates an array of 100 random numbers between 1 and 20. Then, print the maximum repeated number.
+                
+                #include <cstdlib> // to use the random function
+                arr[i] = rand() % 20 + 1; // generate a random number between 1 and 20. 
+*/
+
+
+int main() {
+    int arr[100];
+    int frequency[21] = {0}; // Index 1-20
+
+    // Seed for random numbers, must include ctime library , #include <ctime>
+    srand(time(0));
+
+    // Generate 100 random numbers between 1 and 20
+    for (int i = 0; i < 100; i++) {
+        arr[i] = rand() % 20 + 1;
+        frequency[arr[i]]++;
+    }
+
+    // Print generated array
+    cout << "Generated Numbers:\n";
+    for (int i = 0; i < 100; i++) {
+        cout << arr[i] << " ";
+    }
+
+    cout << "\n\n";
+
+    // Find the maximum repeated number
+    int maxFreq = frequency[1];
+    int maxNumber = 1;
+
+    for (int i = 2; i <= 20; i++) {
+        if (frequency[i] > maxFreq) {
+            maxFreq = frequency[i];
+            maxNumber = i;
+        }
+    }
+
+    // Display result
+    cout << "Maximum repeated number: " << maxNumber << endl;
+    cout << "Repeated " << maxFreq << " times." << endl;
+
+    return 0;
+}
