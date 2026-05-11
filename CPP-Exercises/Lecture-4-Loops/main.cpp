@@ -581,3 +581,74 @@ int main() {
 
     return 0;
 }
+
+
+/* Exercise 21 – Write a C++ program that calculates the series (1) + (1+2) + (1+2+3) + (1+2+3+4) + ... + (1+2+3+4+...+n).
+                    Sample Output:
+                                    Input the value for nth term: 5
+                                    1 = 1
+                                    1+2 = 3
+                                    1+2+3 = 6
+                                    1+2+3+4 = 10
+                                    1+2+3+4+5 = 15
+                                    The sum of the above series is: 35 
+*/
+
+int main() {
+    int n, sumSeries = 0;
+
+    cout << "Input the value for nth term: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        int termSum = 0;
+
+        // Print the series term and calculate its sum
+        for (int j = 1; j <= i; j++) {
+            termSum += j;
+
+            cout << j;
+            if (j < i) {
+                cout << "+";
+            }
+        }
+
+        cout << " = " << termSum << endl;
+
+        sumSeries += termSum;
+    }
+
+    cout << "The sum of the above series is: " << sumSeries << endl;
+
+    return 0;
+}
+
+
+/* Exercise 22 – Write a C++ program to print the Floyd's Triangle after asking the user of the triangle height.
+                    Sample Output:
+                                    Enter the height: 5
+                                                1
+                                                01
+                                                101
+                                                0101
+                                                10101
+*/
+
+int main() {
+    int height;
+
+    cout << "Enter the height: ";
+    cin >> height;
+
+    for (int i = 1; i <= height; i++) {
+        for (int j = 1; j <= i; j++) {
+            // Print alternating 1 and 0
+            cout << (i + j) % 2;
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
