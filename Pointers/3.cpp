@@ -4,21 +4,23 @@ using namespace std;
 
 int main() {
 
-  char c = 'a';
+  char c1 = 'a';
+  
   
   char *ptr = nullptr;
-  ptr = &c;
   
-  cout << ptr << endl;    // ❌ treated as C-string, NOT a safe address print
+  ptr = &c1;
+  
+  cout << ptr << endl;    // ❌ treated as C-string, NOT a safe address print, print anything (unexpected behaviour)
   cout << *ptr << endl;   // ✔ dereference → prints 'a'
   
   /*
   Memory view:
   
-      [c] = 'a'
+      [c1] = 'a'
        ^
        |
-      ptr (stores address of c)
+      ptr1 (stores address of c1)
   
   ptr = &c;
   
@@ -62,6 +64,18 @@ int main() {
       - stops only if it finds '\0'
   
   => This is undefined behavior
+
+     ------------------------------------------------------
+
+    Problem here:
+
+        ptr points to a single char ('a')
+        there is NO '\0' after it
+
+        So:
+        - may print only 'a'
+        - or garbage characters
+        - or undefined behavior
   
   ------------------------------------------------------
   
@@ -69,6 +83,12 @@ int main() {
   
   char* is only safe with cout if it points to a null-terminated character array.
   */
+  
 
-  return 0
+  char c2 = 65; // ASCII value this represents char 'A'
+  char *ptr2 = &c2;
+  cout << ptr2 << endl;  // ❌ treated as C-string, so it may print unexpected characters or cause undefined behavior if no '\0' is found
+  cout << *ptr2 << endl;  // prints ASCII charachter of 65 which is char 'A'
+
+  return 0;
 }
