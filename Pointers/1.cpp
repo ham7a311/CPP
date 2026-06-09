@@ -3,47 +3,36 @@ using namespace std;
 
 int main() {
 
-  // "0" is the only exception, it can be stored for any pointer type, but its better to initialize your pointers with "nullptr"
+  // 0 is treated as a null pointer constant and can be converted to any pointer type(You can initialize pointers of any type (int*, float*, etc.) to 0.).
+
+ /*  0 is a null pointer constant
+    it represents a pointer value that does not point to any valid memory location.
+*/
 
   
-    // Permissible
-    int *ptr1 = 0;  // can only store address of a variable with type int
-    double *ptr2 = 0;  // can only store address of a variable with type double (except 0)
-    char *ptr3 = 0;
-    string *ptr4 = 0;
+    // Permissible but not best practise  |  old style
+    int* ptr1 = 0;  // null pointer (does not point to anything)
+    double* ptr2 = 0;  // null pointer (does not point to anything)
+    char* ptr3 = 0;   // null pointer (does not point to anything)
+    string* ptr4 = 0;  // null pointer (does not point to anything)
+  
 
-    // Better
-    int *betterPtr1 = nullptr;
-    double *betterPtr1 = nullptr;
-    char *betterPtr1 = nullptr;
-    string *betterPtr1 = nullptr;
+    // Better naming (each variable must be unique) | Modern C++ (recommended)
+    int* betterPtr1 = nullptr;
+    double* betterPtr2 = nullptr;
+    char* betterPtr3 = nullptr;
+    string* betterPtr4 = nullptr;
 
+    /*
+        Why nullptr is better than 0?
 
-    // why is initializing to nullptr better than initializing to 0 ?
-    /*           ---------------   Answer  ---------------
-            1. It clearly means “no pointer”
-              nullptr → explicitly a null pointer
-              0 → looks like an integer, not obviously a pointer
-
-            2. It prevents wrong function calls
-
-            3. It is type-safe
-               nullptr has its own type (std::nullptr_t)
-               It converts to any pointer type safely
-               But it is NOT an integer
-
-            4. It avoids confusion in code
-
-               With 0, people can’t always tell if you mean:
-                number zero or null pointer
-                nullptr removes that confusion completely.
-
-            5. Modern C++ standard
-                nullptr was introduced in C++11
-                It is the modern and recommended way
-
-            
+        1. Clearly means "no object"
+        2. Type-safe (has type std::nullptr_t)
+        3. Avoids confusion with integer 0
+        4. Prevents wrong overload selection
+        5. Modern C++ standard (C++11+)
     */
+
 
     return 0;
 }
