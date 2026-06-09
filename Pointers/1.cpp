@@ -17,7 +17,7 @@ int main() {
     string* ptr4 = 0;  // null pointer (does not point to anything)
   
 
-    // Better naming (each variable must be unique) | Modern C++ (recommended)
+    // Better | Modern C++ (recommended)
     int* betterPtr1 = nullptr;
     double* betterPtr2 = nullptr;
     char* betterPtr3 = nullptr;
