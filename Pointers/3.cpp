@@ -1,6 +1,14 @@
 #include <iostream>
 using namespace std;
 
+/*
+    --------------------- Pointers: char ---------------------
+
+    A pointer stores a MEMORY ADDRESS, not a value.
+
+    &  → "address of" (reference)
+    *  → "value at address" (dereference)
+*/
 
 int main() {
 
