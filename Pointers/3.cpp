@@ -90,5 +90,15 @@ int main() {
   cout << ptr2 << endl;  // ❌ treated as C-string, so it may print unexpected characters or cause undefined behavior if no '\0' is found
   cout << *ptr2 << endl;  // prints ASCII charachter of 65 which is char 'A'
 
+
+  // SAFE
+  char str[] = "hi";
+  char* pointer1 = str;
+  cout << pointer1 << endl; // prints the address
+
+  // UNSAFE
+  char ch = 'h';
+  char* pointer2 = &ch;
+  cout << pointer2;  // undefined behavior
   return 0;
 }
