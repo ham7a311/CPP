@@ -37,14 +37,14 @@ int main() {
 
     cout << "---------------- OUTPUT ----------------" << endl;
 
-    cout << "int_ptr (address): " << int_ptr << endl;
-    cout << "*int_ptr (value): " << *int_ptr << endl;
+    cout << "int_ptr (address): " << int_ptr << endl;    // prints the address
+    cout << "*int_ptr (value): " << *int_ptr << endl;    // prints the value at the address of the variable integer_value (prints 10)
 
-    cout << "float_ptr (address): " << float_ptr << endl;
-    cout << "*float_ptr (value): " << *float_ptr << endl;
+    cout << "float_ptr (address): " << float_ptr << endl; // prints the address
+    cout << "*float_ptr (value): " << *float_ptr << endl;  // prints the value at the address of the variable float_value (prints 10.5)
 
-    cout << "double_ptr (address): " << double_ptr << endl;
-    cout << "*double_ptr (value): " << *double_ptr << endl;
+    cout << "double_ptr (address): " << double_ptr << endl; // prints the address
+    cout << "*double_ptr (value): " << *double_ptr << endl;  // prints the value at the address of the variable double_value (prints 11.0)
 
     return 0;
 }
