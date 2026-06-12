@@ -34,5 +34,24 @@ int main() {
     */
 
 
+      /* -------------------- SHADOWING -------------------- */
+    
+    int val = 0;
+
+    if(true) {
+        int val = 1;  // you can use the same variable name, because its in a different scope
+        cout << "Value from if scope: " << *&val << endl;  // will print the value of the variable in the same scope, will print 1
+
+        if(true) {
+            int val = 2;  // you can use the same variable name, because its in a different scope
+            cout << "Value from nested if scope: " << *&val << endl;  // will print the value of the variable in the same scope, will print 2
+        }
+      
+    }
+
+    cout << "Value from global scope: " << *&val << endl;  // will print the value of the variable in the same scope, will print 0
+                                                          // it does not have access to the variable in the if statement scope
+
+
     return 0;
 }
