@@ -80,6 +80,7 @@ int main() {
         /* ---------------------------- 3 ---------------------------- */
 
         ptr = &val2;
+        val2 = 30; // store a new value for val2
 
         /*
             Now the pointer itself changes.
@@ -90,11 +91,11 @@ int main() {
             After:
                 ptr -> val2
 
-            No values are modified.
+           new value -> 30 (value at address of val2 because now the pointer points to val2)
         */
 
         cout << ptr << endl;   // prints address of val2: 0x16f136a54
-        cout << *ptr << endl;  // prints value at val2: 20
+        cout << *ptr << endl;  // prints new value at val2: 30
 
   
   
