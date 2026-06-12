@@ -13,13 +13,17 @@ using namespace std;
     
          undefined behaviour when printing or reading value using cout (you could get anything, the program might even crash)
 
+         -> DON'T WORK WITH POINTERS YOU DIDN'T INITIALIZE
+
      
     2)
          int *ptr1 = nullptr;  // initialized with pointer equivalent to zero: nullptr, a pointer pointing nowhere
     
          *ptr1 = 55; // writing into a pointer pointing nowhere, BAD, CRASH!
     
-         undefined behaviour when printing or reading value using cout (you could get anything, the program might even crash)               
+         undefined behaviour when printing or reading value using cout (you could get anything, the program might even crash)  
+
+         -> DON'T WORK WITH POINTERS YOU INITIALIZED TO nullptr
 
 */
 
